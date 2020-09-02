@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a8922ec-87f7-4227-9cb5-049419a899d6" name="Default Changelist" comment="" />
+    <list default="true" id="6a8922ec-87f7-4227-9cb5-049419a899d6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/wikipedia/WikipediaRanking$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/wikipedia/WikipediaRanking$.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +20,9 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -27,6 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Application.WikipediaRanking">
@@ -90,7 +99,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="9429548676000" />
+        <entry key="$PROJECT_DIR$" value="9593104212188" />
         <entry key="$PROJECT_DIR$/build.sbt" value="2250139156" />
         <entry key="$PROJECT_DIR$/project/MOOCSettings.scala" value="598648594" />
         <entry key="$PROJECT_DIR$/project/StudentTasks.scala" value="2255003577" />
@@ -136,22 +145,30 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="496" y="185" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1598747957261" />
-    <state width="1321" height="204" key="GridCell.Tab.0.bottom" timestamp="1598828236130">
+    <state x="380" y="66" key="CommitChangelistDialog2" timestamp="1599010420005">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1321" height="204" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1598828236130" />
-    <state width="1321" height="204" key="GridCell.Tab.0.center" timestamp="1598828236129">
+    <state x="380" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1599010420005" />
+    <state width="1321" height="230" key="GridCell.Tab.0.bottom" timestamp="1599010239085">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1321" height="204" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1598828236129" />
-    <state width="1321" height="204" key="GridCell.Tab.0.left" timestamp="1598828236129">
+    <state width="1321" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1599010239085" />
+    <state width="1321" height="204" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1598894057078" />
+    <state width="1321" height="230" key="GridCell.Tab.0.center" timestamp="1599010239084">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1321" height="204" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1598828236129" />
-    <state width="1321" height="204" key="GridCell.Tab.0.right" timestamp="1598828236130">
+    <state width="1321" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1599010239084" />
+    <state width="1321" height="204" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1598894057077" />
+    <state width="1321" height="230" key="GridCell.Tab.0.left" timestamp="1599010239084">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1321" height="204" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1598828236130" />
+    <state width="1321" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1599010239084" />
+    <state width="1321" height="204" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1598894057077" />
+    <state width="1321" height="230" key="GridCell.Tab.0.right" timestamp="1599010239085">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1321" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1599010239085" />
+    <state width="1321" height="204" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1598894057078" />
     <state x="423" y="193" width="670" height="676" key="search.everywhere.popup" timestamp="1598824714196">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

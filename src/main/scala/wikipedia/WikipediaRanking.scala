@@ -60,7 +60,7 @@ object WikipediaRanking extends WikipediaRankingInterface {
   def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = {
     langs
       .map(lang => (lang, occurrencesOfLang(lang, rdd)))  // List((the,4), (of,5), (categories,2))
-      .sortWith((x,y) => x._2 > y._2)                     // List((of,5), (the,4), (categories,2))
+      .sortBy(-_._2)                                      // List((of,5), (the,4), (categories,2))
   }
 
   /* Compute an inverted index of the set of articles, mapping each language
@@ -79,7 +79,9 @@ object WikipediaRanking extends WikipediaRankingInterface {
    *   Note: this operation is long-running. It can potentially run for
    *   several seconds.
    */
-  def rankLangsUsingIndex(index: RDD[(String, Iterable[WikipediaArticle])]): List[(String, Int)] = ???
+  def rankLangsUsingIndex(index: RDD[(String, Iterable[WikipediaArticle])]): List[(String, Int)] = {
+    index.map(x => (x._1, x._2.size)).sortBy(-_._2)  .collect().toList
+  }
 
   /* (3) Use `reduceByKey` so that the computation of the index and the ranking are combined.
    *     Can you notice an improvement in performance compared to measuring *both* the computation of the index
@@ -91,42 +93,48 @@ object WikipediaRanking extends WikipediaRankingInterface {
   def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] = ???
 
   def main(args: Array[String]): Unit = {
-//    println("------------------------------------ wikiList")
-//    val wikiList = WikipediaData.lines.take(2).map(x => WikipediaData.parse(x))
-//    println(wikiList.getClass.getName)
-//    println(wikiList)
-//    println("------------------------------------ wikiRdd")
-//    wikiRdd.foreach(println)
-//    println("------------------------------------ occurrencesOfLang")
-//    occurrencesOfLang("the", wikiRdd) // 4
-//    occurrencesOfLang("of", wikiRdd) // 5
-//    occurrencesOfLang("categories", wikiRdd) // 2
-//    println("------------------------------------ rankLangs")
-//    val rankLangs1 = langsTest
-//      .map(lang => (lang, occurrencesOfLang(lang, wikiRdd)))  // List((the,4), (of,5), (categories,2))
-//      .sortWith((x,y) => x._2 > y._2)                         // List((of,5), (the,4), (categories,2))
-//    println(rankLangs1)
-//    println(rankLangs(langsTest, wikiRdd))
-//    println("------------------------------------ makeIndex")
-//    wikiRdd
-//      .map(article => (article, langsTest.filter(lang => article.mentionsLanguage(lang))))
-////    (WikipediaArticle(...),List(the, of))
-////    (WikipediaArticle(...),List())
-////    (WikipediaArticle(...),List())
-////    (WikipediaArticle(...),List(the, of, categories))
-//      .map(x => x._2.map(ls => (ls, x._1)))
-////    List((the,WikipediaArticle(...)), (of,WikipediaArticle(...)))
-////    List()
-////    List()
-////    List((the,WikipediaArticle(...)), (of,WikipediaArticle(...)), (categories,WikipediaArticle(...)))
-//      .flatMap(x => x).groupByKey()
-////    (of,CompactBuffer(WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...)))
-////    (categories,CompactBuffer(WikipediaArticle(...), WikipediaArticle(...)))
-////    (the,CompactBuffer(WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...)))
-//      .foreach(println)
-//    makeIndex(langsTest, wikiRdd).foreach(println)
+    println("------------------------------------ wikiList")
+    val wikiList = WikipediaData.lines.take(2).map(x => WikipediaData.parse(x))
+    println(wikiList.getClass.getName)
+    println(wikiList)
+    println("------------------------------------ wikiRdd")
+    wikiRdd.foreach(println)
+    println("------------------------------------ occurrencesOfLang")
+    occurrencesOfLang("the", wikiRdd) // 4
+    occurrencesOfLang("of", wikiRdd) // 5
+    occurrencesOfLang("categories", wikiRdd) // 2
+    println("------------------------------------ rankLangs")
+    val rankLangs1 = langsTest
+      .map(lang => (lang, occurrencesOfLang(lang, wikiRdd)))  // List((the,4), (of,5), (categories,2))
+        .sortBy(-_._2)                                        // List((of,5), (the,4), (categories,2))
+//      .sortWith((x,y) => x._2 > y._2)                       // List((of,5), (the,4), (categories,2))
+    println(rankLangs1)
+    println(rankLangs(langsTest, wikiRdd))
+    println("------------------------------------ makeIndex")
+    wikiRdd
+      .map(article => (article, langsTest.filter(lang => article.mentionsLanguage(lang))))
+//    (WikipediaArticle(...),List(the, of))
+//    (WikipediaArticle(...),List())
+//    (WikipediaArticle(...),List())
+//    (WikipediaArticle(...),List(the, of, categories))
+      .map(x => x._2.map(ls => (ls, x._1)))
+//    List((the,WikipediaArticle(...)), (of,WikipediaArticle(...)))
+//    List()
+//    List()
+//    List((the,WikipediaArticle(...)), (of,WikipediaArticle(...)), (categories,WikipediaArticle(...)))
+      .flatMap(x => x).groupByKey()
+//    (of,CompactBuffer(WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...)))
+//    (categories,CompactBuffer(WikipediaArticle(...), WikipediaArticle(...)))
+//    (the,CompactBuffer(WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...), WikipediaArticle(...)))
+      .foreach(println)
+    makeIndex(langsTest, wikiRdd).foreach(println)
     println("------------------------------------ rankLangsUsingIndex")
-
+    makeIndex(langsTest, wikiRdd).map(x => (x._1, x._2.size)).sortBy(-_._2).foreach(println)
+//    (of,5)
+//    (the,4)
+//    (categories,2)
+    rankLangsUsingIndex(makeIndex(langsTest, wikiRdd)).foreach(println)
+    println("------------------------------------ rankLangsReduceByKey")
 //    /* Languages ranked according to (1) */
 //    val langsRanked: List[(String, Int)] = timed("Part 1: naive ranking", rankLangs(langs, wikiRdd))
 //

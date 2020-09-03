@@ -21,7 +21,7 @@ object WikipediaRanking extends WikipediaRankingInterface {
     "Objective-C", "Perl", "Scala", "Haskell", "MATLAB", "Clojure", "Groovy")
   val langsTest = List("the", "of", "categories")
 
-  val conf: SparkConf = new SparkConf().setAppName("week1-wikipedia").setMaster("local")
+  val conf: SparkConf = new SparkConf().setAppName("week1-wikipedia").setMaster("local").set("spark.executor.memory", "2g")
   val sc: SparkContext = new SparkContext(conf)
   // Hint: use a combination of `sc.parallelize`, `WikipediaData.lines` and `WikipediaData.parse`
   val wikiRdd: RDD[WikipediaArticle] = sc.parallelize(WikipediaData.lines.map(x => WikipediaData.parse(x))).cache()
@@ -166,29 +166,33 @@ object WikipediaRanking extends WikipediaRankingInterface {
     println("------------------------------------ wikiRdd10")
     wikiRdd10.foreach(println)
     println("------------------------------------ occurrencesOfLang")
-//    occurrencesOfLang("the", wikiRdd10) // 4
-//    occurrencesOfLang("of", wikiRdd10) // 5
-//    occurrencesOfLang("categories", wikiRdd10) // 2
+    occurrencesOfLang("the", wikiRdd10) // 4
+    occurrencesOfLang("of", wikiRdd10) // 5
+    occurrencesOfLang("categories", wikiRdd10) // 2
     println("------------------------------------ rankLangs")
-//    println(rankLangs(langsTest, wikiRdd10))
+    println(rankLangs(langsTest, wikiRdd10))
     println("------------------------------------ makeIndex")
-//    makeIndex(langsTest, wikiRdd10).foreach(println)
+    makeIndex(langsTest, wikiRdd10).foreach(println)
     println("------------------------------------ rankLangsUsingIndex")
-//    println(rankLangsUsingIndex(makeIndex(langsTest, wikiRdd10)))
+    println(rankLangsUsingIndex(makeIndex(langsTest, wikiRdd10)))
     println("------------------------------------ rankLangsReduceByKey")
-//    println(rankLangsReduceByKey(langsTest, wikiRdd10))
-//    println("------------------------------------ timed")
+    println(rankLangsReduceByKey(langsTest, wikiRdd10))
+    println("------------------------------------ timed")
     /* Languages ranked according to (1) */
     val langsRanked: List[(String, Int)] = timed("Part 1: naive ranking", rankLangs(langs, wikiRdd))
+    val langsRankedTest: List[(String, Int)] = timed("Part 1Test: naive ranking", rankLangs(langsTest, wikiRdd10))
 
     /* An inverted index mapping languages to wikipedia pages on which they appear */
     def index: RDD[(String, Iterable[WikipediaArticle])] = makeIndex(langs, wikiRdd)
+    def indexTest: RDD[(String, Iterable[WikipediaArticle])] = makeIndex(langsTest, wikiRdd10)
 
     /* Languages ranked according to (2), using the inverted index */
     val langsRanked2: List[(String, Int)] = timed("Part 2: ranking using inverted index", rankLangsUsingIndex(index))
+    val langsRanked2Test: List[(String, Int)] = timed("Part 2Test: ranking using inverted index", rankLangsUsingIndex(indexTest))
 
     /* Languages ranked according to (3) */
     val langsRanked3: List[(String, Int)] = timed("Part 3: ranking using reduceByKey", rankLangsReduceByKey(langs, wikiRdd))
+    val langsRanked3Test: List[(String, Int)] = timed("Part 3Test: ranking using reduceByKey", rankLangsReduceByKey(langsTest, wikiRdd10))
 
     /* Output the speed of each ranking */
     println(timing)

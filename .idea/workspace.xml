@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/wikipedia/WikipediaRanking.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/wikipedia/WikipediaRanking$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/wikipedia/WikipediaRanking$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/wikipedia/WikipediaRanking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/wikipedia/WikipediaRanking.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599010454788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update rankLangsUsingIndex">
+      <created>1599080076554</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1599080076554</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -157,34 +163,40 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="496" y="185" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1598747957261" />
-    <state x="380" y="66" key="CommitChangelistDialog2" timestamp="1599010489488">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state x="507" y="75" key="CommitChangelistDialog2" timestamp="1599165471764">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="380" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1599010489488" />
-    <state width="1321" height="348" key="GridCell.Tab.0.bottom" timestamp="1599079991545">
+    <state x="507" y="75" key="CommitChangelistDialog2/0.23.1920.1057@0.23.1920.1057" timestamp="1599165471764" />
+    <state width="1549" height="348" key="GridCell.Tab.0.bottom" timestamp="1599165266156">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1186" height="230" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1599079229128" />
-    <state width="1321" height="348" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1599079991545" />
-    <state width="1321" height="348" key="GridCell.Tab.0.center" timestamp="1599079991544">
+    <state width="1549" height="348" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1599165266156" />
+    <state width="1549" height="348" key="GridCell.Tab.0.center" timestamp="1599165266155">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1186" height="230" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1599079229127" />
-    <state width="1321" height="348" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1599079991544" />
-    <state width="1321" height="348" key="GridCell.Tab.0.left" timestamp="1599079991543">
+    <state width="1549" height="348" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1599165266155" />
+    <state width="1549" height="348" key="GridCell.Tab.0.left" timestamp="1599165266155">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1186" height="230" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1599079229126" />
-    <state width="1321" height="348" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1599079991543" />
-    <state width="1321" height="348" key="GridCell.Tab.0.right" timestamp="1599079991544">
+    <state width="1549" height="348" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1599165266155" />
+    <state width="1549" height="348" key="GridCell.Tab.0.right" timestamp="1599165266155">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state width="1186" height="230" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1599079229127" />
-    <state width="1321" height="348" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1599079991544" />
-    <state x="358" y="203" key="Vcs.Push.Dialog.v2" timestamp="1599010456771">
-      <screen x="0" y="23" width="1440" height="877" />
+    <state width="1549" height="348" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1599165266155" />
+    <state x="477" y="240" key="Vcs.Push.Dialog.v2" timestamp="1599080082263">
+      <screen x="0" y="23" width="1920" height="1057" />
     </state>
     <state x="358" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1599010456771" />
+    <state x="477" y="240" key="Vcs.Push.Dialog.v2/0.23.1920.1057@0.23.1920.1057" timestamp="1599080082263" />
+    <state x="934" y="77" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599084361243">
+      <screen x="0" y="23" width="1920" height="1057" />
+    </state>
+    <state x="934" y="77" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1920.1057@0.23.1920.1057" timestamp="1599084361243" />
     <state x="835" y="287" width="790" height="528" key="find.popup" timestamp="1599079726460">
       <screen x="0" y="23" width="1920" height="1057" />
     </state>

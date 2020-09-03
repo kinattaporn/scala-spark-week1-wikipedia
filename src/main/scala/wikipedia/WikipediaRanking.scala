@@ -179,19 +179,19 @@ object WikipediaRanking extends WikipediaRankingInterface {
     println(rankLangsReduceByKey(langsTest, wikiRdd10))
     println("------------------------------------ timed")
     /* Languages ranked according to (1) */
-    val langsRanked: List[(String, Int)] = timed("Part 1: naive ranking", rankLangs(langs, wikiRdd))
+//    val langsRanked: List[(String, Int)] = timed("Part 1: naive ranking", rankLangs(langs, wikiRdd))
     val langsRankedTest: List[(String, Int)] = timed("Part 1Test: naive ranking", rankLangs(langsTest, wikiRdd10))
 
     /* An inverted index mapping languages to wikipedia pages on which they appear */
-    def index: RDD[(String, Iterable[WikipediaArticle])] = makeIndex(langs, wikiRdd)
+//    def index: RDD[(String, Iterable[WikipediaArticle])] = makeIndex(langs, wikiRdd)
     def indexTest: RDD[(String, Iterable[WikipediaArticle])] = makeIndex(langsTest, wikiRdd10)
 
     /* Languages ranked according to (2), using the inverted index */
-    val langsRanked2: List[(String, Int)] = timed("Part 2: ranking using inverted index", rankLangsUsingIndex(index))
+//    val langsRanked2: List[(String, Int)] = timed("Part 2: ranking using inverted index", rankLangsUsingIndex(index))
     val langsRanked2Test: List[(String, Int)] = timed("Part 2Test: ranking using inverted index", rankLangsUsingIndex(indexTest))
 
     /* Languages ranked according to (3) */
-    val langsRanked3: List[(String, Int)] = timed("Part 3: ranking using reduceByKey", rankLangsReduceByKey(langs, wikiRdd))
+//    val langsRanked3: List[(String, Int)] = timed("Part 3: ranking using reduceByKey", rankLangsReduceByKey(langs, wikiRdd))
     val langsRanked3Test: List[(String, Int)] = timed("Part 3Test: ranking using reduceByKey", rankLangsReduceByKey(langsTest, wikiRdd10))
 
     /* Output the speed of each ranking */

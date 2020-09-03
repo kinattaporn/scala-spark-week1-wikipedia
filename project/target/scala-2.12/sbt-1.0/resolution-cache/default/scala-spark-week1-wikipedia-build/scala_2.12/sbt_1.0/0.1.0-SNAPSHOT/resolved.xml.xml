@@ -4,7 +4,7 @@
 		module="scala-spark-week1-wikipedia-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20200829170313"
+		publication="20200902171211"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
